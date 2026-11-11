@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore | Probe</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #17251e;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: #ffffff;
+            border-bottom: 1px solid #e5eee8;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #159957;
+        }
+
+        nav a {
+            color: #34483b;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        /* Main section */
+        .container {
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 0 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: #16834d;
+            background: #e9f8ef;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #17251e;
+        }
+
+        h1 span {
+            color: #159957;
+        }
+
+        .description {
+            color: #66756b;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-bottom: 45px;
+        }
+
+        /* Feature grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        /* Feature cards */
+        .card {
+            display: block;
+            background: #f7fcf8;
+            border: 1px solid #dceee2;
+            border-radius: 18px;
+            padding: 32px;
+            text-decoration: none;
+            color: #17251e;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            background: #edfaf1;
+            border-color: #36b875;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(21, 153, 87, 0.10);
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: #e0f6e8;
+            border-radius: 15px;
+            font-size: 29px;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            margin-bottom: 13px;
+        }
+
+        .card p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 23px;
+        }
+
+        .open {
+            color: #16834d;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            color: #78867d;
+            font-size: 13px;
+            border-top: 1px solid #e5eee8;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 600px) {
+            nav {
+                padding: 20px 6%;
+            }
+
+            .container {
+                margin: 45px auto;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">probe.</div>
+        <a href="index.html">← Back to Home</a>
+    </nav>
+
+    <main class="container">
+
+        <p class="tag">YOUR CAREER WORKSPACE</p>
+
+        <h1>
+            Explore your <span>possibilities.</span>
+        </h1>
+
+        <p class="description">
+            Everything you need to move from student to hire.
+            Choose a tool and take the next step in your career journey.
+        </p>
+
+        <div class="features">
+
+            <a href="resume.html" class="card">
+                <div class="icon">📄</div>
+                <h2>Resume Builder</h2>
+                <p>
+                    Create a professional resume that highlights
+                    your skills, projects and achievements.
+                </p>
+                <span class="open">Explore tool →</span>
+            </a>
+
+            <a href="assistant.html" class="card">
+                <div class="icon">🤖</div>
+                <h2>AI Assistant</h2>
+                <p>
+                    Get help with career questions, skill development
+                    and your next learning steps.
+                </p>
+                <span class="open">Explore tool →</span>
+            </a>
+
+            <a href="tracker.html" class="card">
+                <div class="icon">📊</div>
+                <h2>Job Tracker</h2>
+                <p>
+                    Organize your job and internship applications
+                    and keep track of your progress.
+                </p>
+                <span class="open">Explore tool →</span>
+            </a>
+
+            <a href="interview.html" class="card">
+                <div class="icon">🎯</div>
+                <h2>Interview Preparation</h2>
+                <p>
+                    Prepare for interviews with practice questions,
+                    useful tips and preparation resources.
+                </p>
+                <span class="open">Explore tool →</span>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        © 2026 Probe. From Student to Hire.
+    </footer>
+
+</body>
+
+</html>

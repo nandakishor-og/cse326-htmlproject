@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker | PROBE</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #17251e;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #e8eee9;
+        }
+
+        .logo {
+            color: #159957;
+            font-size: 29px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #52645a;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1150px;
+            margin: 45px auto;
+            padding: 0 25px;
+        }
+
+        /* WELCOME */
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 13px;
+            background: #e9f8ef;
+            color: #16834d;
+            border-radius: 30px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 17px;
+        }
+
+        .welcome h1 {
+            font-size: 37px;
+            margin-bottom: 13px;
+        }
+
+        .welcome h1 span {
+            color: #159957;
+        }
+
+        .welcome p {
+            color: #758179;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        /* GET STARTED */
+
+        .start-card {
+            background: #f4faf5;
+            border: 1px solid #dceee2;
+            border-radius: 18px;
+            padding: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .start-card h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .start-card p {
+            color: #68776d;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .start-btn {
+            background: #159957;
+            color: white;
+            padding: 13px 22px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .start-btn:hover {
+            background: #117c46;
+        }
+
+        /* STATISTICS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 17px;
+            margin-bottom: 45px;
+        }
+
+        .stat-card {
+            border: 1px solid #e2ebe4;
+            padding: 22px;
+            border-radius: 15px;
+            background: #ffffff;
+        }
+
+        .stat-card p {
+            color: #758179;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card h2 {
+            font-size: 29px;
+            color: #159957;
+        }
+
+        .stat-card small {
+            display: block;
+            color: #9aa49d;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        /* SECTION */
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .section-heading h2 {
+            font-size: 21px;
+        }
+
+        .section-heading span {
+            color: #159957;
+            font-size: 12px;
+        }
+
+        /* FORM */
+
+        .form-card {
+            border: 1px solid #e0ebe3;
+            border-radius: 17px;
+            padding: 28px;
+            margin-bottom: 42px;
+        }
+
+        .form-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .form-card .subtitle {
+            color: #849188;
+            font-size: 13px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .form-group label {
+            color: #34483b;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 13px;
+            border: 1px solid #dce7df;
+            border-radius: 9px;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #34483b;
+            width: 100%;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #159957;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .required {
+            color: #d44b4b;
+        }
+
+        .add-btn {
+            margin-top: 23px;
+            background: #159957;
+            border: none;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .add-btn:hover {
+            background: #117c46;
+        }
+
+        /* EMPTY STATE */
+
+        .empty-card {
+            border: 1px dashed #cbded0;
+            background: #fbfdfb;
+            border-radius: 16px;
+            text-align: center;
+            padding: 48px 20px;
+            margin-bottom: 42px;
+        }
+
+        .empty-icon {
+            width: 65px;
+            height: 65px;
+            background: #e9f8ef;
+            color: #159957;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 29px;
+            margin: 0 auto 18px;
+        }
+
+        .empty-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .empty-card p {
+            color: #849188;
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 430px;
+            margin: 0 auto;
+        }
+
+        /* INTERVIEW EMPTY STATE */
+
+        .interview-empty {
+            background: #f7fcf8;
+            border: 1px solid #e0ebe3;
+            border-radius: 15px;
+            padding: 24px;
+            margin-bottom: 35px;
+        }
+
+        .interview-empty h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .interview-empty p {
+            color: #849188;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* STEPS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            padding: 21px;
+            border: 1px solid #e0ebe3;
+            border-radius: 14px;
+        }
+
+        .step-number {
+            color: #159957;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 13px;
+        }
+
+        .step-card h3 {
+            font-size: 14px;
+            margin-bottom: 9px;
+        }
+
+        .step-card p {
+            color: #849188;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 27px 15px;
+            border-top: 1px solid #e5eee8;
+            color: #849188;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 750px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h1 {
+                font-size: 31px;
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            nav {
+                padding: 19px 6%;
+            }
+
+            .container {
+                margin: 30px auto;
+                padding: 0 17px;
+            }
+
+            .start-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full {
+                grid-column: auto;
+            }
+
+            .form-card {
+                padding: 20px;
+            }
+
+            .stat-card {
+                padding: 17px;
+            }
+
+            .stat-card h2 {
+                font-size: 25px;
+            }
+
+            .section-heading h2 {
+                font-size: 17px;
+            }
+
+            .empty-card {
+                padding: 35px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">probe.</div>
+        <a href="explore.html">← Back to Explore</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <span class="tag">YOUR CAREER WORKSPACE</span>
+
+            <h1>Welcome to your <span>Job Tracker.</span></h1>
+
+            <p>
+                Your career journey starts here. Organize your job
+                applications, keep track of opportunities and manage
+                your interview progress — all in one place.
+            </p>
+
+        </section>
+
+        <!-- GET STARTED -->
+
+        <section class="start-card">
+
+            <div>
+                <h2>Your career journey starts today.</h2>
+                <p>
+                    You haven't added any applications yet.
+                    Start by recording your first job or internship application.
+                </p>
+            </div>
+
+            <a href="#add-application" class="start-btn">
+                + Add Application
+            </a>
+
+        </section>
+
+        <!-- STATISTICS -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Total Applications</p>
+                <h2>0</h2>
+                <small>Start tracking your applications</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Applied</p>
+                <h2>0</h2>
+                <small>Applications submitted</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Interviews</p>
+                <h2>0</h2>
+                <small>Interviews scheduled</small>
+            </div>
+
+            <div class="stat-card">
+                <p>Offers</p>
+                <h2>0</h2>
+                <small>Offers received</small>
+            </div>
+
+        </section>
+
+        <!-- ADD APPLICATION -->
+
+        <section id="add-application">
+
+            <div class="section-heading">
+                <h2>Add Your First Application</h2>
+                <span>GET STARTED</span>
+            </div>
+
+            <div class="form-card">
+
+                <h3>Application Details</h3>
+
+                <p class="subtitle">
+                    Fill in the information below to record a job
+                    or internship opportunity.
+                </p>
+
+                <form action="#" method="get">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Company Name <span class="required">*</span></label>
+                            <input type="text" name="company" placeholder="e.g. Google" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Job Role <span class="required">*</span></label>
+                            <input type="text" name="role" placeholder="e.g. Software Engineer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Application Date <span class="required">*</span></label>
+                            <input type="date" name="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Job Type <span class="required">*</span></label>
+                            <select name="job_type" required>
+                                <option value="">Select job type</option>
+                                <option>Internship</option>
+                                <option>Full-time</option>
+                                <option>Part-time</option>
+                                <option>Remote</option>
+                                <option>Freelance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Application Status <span class="required">*</span></label>
+                            <select name="status" required>
+                                <option value="">Select status</option>
+                                <option>Saved</option>
+                                <option>Applied</option>
+                                <option>Assessment</option>
+                                <option>Interview</option>
+                                <option>Rejected</option>
+                                <option>Offer</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salary / Stipend</label>
+                            <input type="text" name="salary" placeholder="e.g. ₹20,000/month">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Company Website</label>
+                            <input type="url" name="website" placeholder="https://example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Job Application Link</label>
+                            <input type="url" name="job_link" placeholder="Paste application URL">
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Additional Notes</label>
+                            <textarea name="notes"
+                                placeholder="Add interview details, recruiter information or other notes..."></textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="add-btn">
+                        Submit Application →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- APPLICATION HISTORY -->
+
+        <section>
+
+            <div class="section-heading">
+                <h2>My Applications</h2>
+                <span>YOUR ACTIVITY</span>
+            </div>
+
+            <div class="empty-card">
+
+                <div class="empty-icon">+</div>
+
+                <h3>No applications yet</h3>
+
+                <p>
+                    Your application history will appear here
+                    once you start recording your job and internship
+                    opportunities. Keep everything organized in one place.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- INTERVIEWS -->
+
+        <section>
+
+            <div class="section-heading">
+                <h2>Upcoming Interviews</h2>
+                <span>INTERVIEW SCHEDULE</span>
+            </div>
+
+            <div class="interview-empty">
+
+                <h3>No upcoming interviews</h3>
+
+                <p>
+                    Once you receive an interview invitation,
+                    you can keep its details organized as part
+                    of your career journey.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- GETTING STARTED GUIDE -->
+
+        <section>
+
+            <div class="section-heading">
+                <h2>How to Get Started</h2>
+                <span>YOUR FIRST STEPS</span>
+            </div>
+
+            <div class="steps">
+
+                <div class="step-card">
+                    <div class="step-number">STEP 01</div>
+                    <h3>Find an Opportunity</h3>
+                    <p>
+                        Explore internships and jobs that
+                        match your interests and skills.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">STEP 02</div>
+                    <h3>Record Your Application</h3>
+                    <p>
+                        Add the company, job role, date
+                        and application status.
+                    </p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">STEP 03</div>
+                    <h3>Track Your Progress</h3>
+                    <p>
+                        Monitor your applications and
+                        stay prepared for interviews.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 PROBE. From Student to Hire.
+    </footer>
+
+</body>
+
+</html>

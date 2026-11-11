@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Builder | Probe</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #17251e;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #e5eee8;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #159957;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34483b;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        /* MAIN CONTAINER */
+
+        .container {
+            max-width: 1000px;
+            margin: 55px auto;
+            padding: 0 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e9f8ef;
+            color: #16834d;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 14px;
+        }
+
+        h1 span {
+            color: #159957;
+        }
+
+        .description {
+            color: #68776d;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        /* RESUME PAPER */
+
+        .resume {
+            background: white;
+            border: 1px solid #dceee2;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+        }
+
+        .resume-header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #159957;
+        }
+
+        .resume-header h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #17251e;
+        }
+
+        .resume-header p {
+            color: #159957;
+            font-size: 14px;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            margin-top: 27px;
+        }
+
+        .section h3 {
+            color: #159957;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #dceee2;
+            padding-bottom: 9px;
+            margin-bottom: 17px;
+        }
+
+        .group {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #34483b;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d7e5dc;
+            border-radius: 8px;
+            background: #ffffff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #17251e;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #159957;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 85px;
+            line-height: 1.6;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .entry {
+            background: #f7fcf8;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .entry-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #16834d;
+            margin-bottom: 14px;
+        }
+
+        /* INSTRUCTIONS */
+
+        .instructions {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e9f8ef;
+            border-radius: 12px;
+            color: #34483b;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .instructions strong {
+            color: #159957;
+        }
+
+        .print-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #68776d;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            color: #78867d;
+            font-size: 13px;
+            border-top: 1px solid #e5eee8;
+            margin-top: 50px;
+        }
+
+        /* MOBILE RESPONSIVE */
+
+        @media(max-width: 650px) {
+
+            nav {
+                padding: 20px 6%;
+            }
+
+            .container {
+                margin: 35px auto;
+                padding: 0 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .resume {
+                padding: 22px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+        }
+
+        /* PRINT / SAVE AS PDF */
+
+        @media print {
+
+            @page {
+                size: A4;
+                margin: 12mm;
+            }
+
+            body {
+                background: white;
+                color: #17251e;
+            }
+
+            nav,
+            .tag,
+            .description,
+            .instructions,
+            .print-note,
+            footer {
+                display: none !important;
+            }
+
+            .container {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .resume {
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .resume-header {
+                border-bottom: 2px solid #159957;
+            }
+
+            .section {
+                break-inside: auto;
+            }
+
+            .entry {
+                background: white;
+                padding: 5px 0;
+                break-inside: avoid;
+            }
+
+            input,
+            textarea {
+                border: none;
+                border-radius: 0;
+                padding: 3px 0;
+                background: transparent;
+                color: black;
+                font-size: 11px;
+                outline: none;
+                appearance: none;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: transparent;
+            }
+
+            textarea {
+                resize: none;
+                overflow: visible;
+            }
+
+            label {
+                font-size: 10px;
+                color: #444;
+            }
+
+            .section h3 {
+                break-after: avoid;
+            }
+
+            .group {
+                break-inside: avoid;
+            }
+
+            .resume-header h2 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="logo">probe.</div>
+
+        <a href="explore.html">← Back to Explore</a>
+    </nav>
+
+
+    <main class="container">
+
+        <p class="tag">CAREER TOOLKIT</p>
+
+        <h1>Build your <span>Resume.</span></h1>
+
+        <p class="description">
+            Create your professional resume by filling in the
+            information below. Highlight your education, skills,
+            projects and achievements.
+        </p>
+
+
+        <!-- RESUME DOCUMENT -->
+
+        <form class="resume">
+
+            <!-- HEADER -->
+
+            <div class="resume-header">
+
+                <h2>MY PROFESSIONAL RESUME</h2>
+
+                <p>Personal Career Profile</p>
+
+            </div>
+
+
+            <!-- PERSONAL INFORMATION -->
+
+            <div class="section">
+
+                <h3>01. Personal Information</h3>
+
+                <div class="group">
+                    <label>Full Name</label>
+                    <input type="text"
+                    placeholder="Enter your full name">
+                </div>
+
+                <div class="group">
+                    <label>Professional Title</label>
+                    <input type="text"
+                    placeholder="Computer Science Student">
+                </div>
+
+                <div class="two-column">
+
+                    <div class="group">
+                        <label>Email Address</label>
+                        <input type="email"
+                        placeholder="yourname@email.com">
+                    </div>
+
+                    <div class="group">
+                        <label>Phone Number</label>
+                        <input type="tel"
+                        placeholder="+91 00000 00000">
+                    </div>
+
+                </div>
+
+                <div class="group">
+                    <label>Location</label>
+                    <input type="text"
+                    placeholder="City, State, Country">
+                </div>
+
+                <div class="two-column">
+
+                    <div class="group">
+                        <label>LinkedIn Profile</label>
+                        <input type="text"
+                        placeholder="LinkedIn URL">
+                    </div>
+
+                    <div class="group">
+                        <label>GitHub / Portfolio</label>
+                        <input type="text"
+                        placeholder="GitHub or Portfolio URL">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CAREER OBJECTIVE -->
+
+            <div class="section">
+
+                <h3>02. Career Objective</h3>
+
+                <div class="group">
+
+                    <label>Professional Summary</label>
+
+                    <textarea
+                    placeholder="Write a short introduction about yourself, your career goals, interests and strengths..."></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- EDUCATION -->
+
+            <div class="section">
+
+                <h3>03. Education</h3>
+
+                <div class="entry">
+
+                    <p class="entry-title">Education Entry 1</p>
+
+                    <div class="group">
+                        <label>Degree / Course</label>
+                        <input type="text"
+                        placeholder="B.Tech Computer Science">
+                    </div>
+
+                    <div class="group">
+                        <label>College / University</label>
+                        <input type="text"
+                        placeholder="College name">
+                    </div>
+
+                    <div class="two-column">
+
+                        <div class="group">
+                            <label>Start Year</label>
+                            <input type="text"
+                            placeholder="2025">
+                        </div>
+
+                        <div class="group">
+                            <label>Graduation Year</label>
+                            <input type="text"
+                            placeholder="2029">
+                        </div>
+
+                    </div>
+
+                    <div class="group">
+                        <label>CGPA / Percentage</label>
+                        <input type="text"
+                        placeholder="Enter your result">
+                    </div>
+
+                </div>
+
+
+                <div class="entry">
+
+                    <p class="entry-title">Education Entry 2</p>
+
+                    <div class="group">
+                        <label>School / Qualification</label>
+                        <input type="text"
+                        placeholder="Higher Secondary / Class 12">
+                    </div>
+
+                    <div class="group">
+                        <label>School Name</label>
+                        <input type="text"
+                        placeholder="School name">
+                    </div>
+
+                    <div class="two-column">
+
+                        <div class="group">
+                            <label>Year</label>
+                            <input type="text"
+                            placeholder="2025">
+                        </div>
+
+                        <div class="group">
+                            <label>Percentage</label>
+                            <input type="text"
+                            placeholder="86%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TECHNICAL SKILLS -->
+
+            <div class="section">
+
+                <h3>04. Technical Skills</h3>
+
+                <div class="group">
+                    <label>Programming Languages</label>
+                    <textarea
+                    placeholder="Python, C, C++, Java..."></textarea>
+                </div>
+
+                <div class="group">
+                    <label>Web Technologies</label>
+                    <textarea
+                    placeholder="HTML, CSS, JavaScript..."></textarea>
+                </div>
+
+                <div class="group">
+                    <label>Tools and Technologies</label>
+                    <textarea
+                    placeholder="GitHub, VS Code, MySQL..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- SOFT SKILLS -->
+
+            <div class="section">
+
+                <h3>05. Soft Skills</h3>
+
+                <div class="group">
+                    <label>Your Soft Skills</label>
+                    <textarea
+                    placeholder="Communication, Leadership, Teamwork, Problem Solving..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- PROJECTS -->
+
+            <div class="section">
+
+                <h3>06. Projects</h3>
+
+                <div class="entry">
+
+                    <p class="entry-title">Project 1</p>
+
+                    <div class="group">
+                        <label>Project Name</label>
+                        <input type="text"
+                        placeholder="Enter project name">
+                    </div>
+
+                    <div class="group">
+                        <label>Technologies Used</label>
+                        <input type="text"
+                        placeholder="HTML, CSS, Python...">
+                    </div>
+
+                    <div class="group">
+                        <label>Project Description</label>
+                        <textarea
+                        placeholder="Explain the project, its purpose and your contribution..."></textarea>
+                    </div>
+
+                </div>
+
+
+                <div class="entry">
+
+                    <p class="entry-title">Project 2</p>
+
+                    <div class="group">
+                        <label>Project Name</label>
+                        <input type="text"
+                        placeholder="Enter project name">
+                    </div>
+
+                    <div class="group">
+                        <label>Technologies Used</label>
+                        <input type="text"
+                        placeholder="Technologies used">
+                    </div>
+
+                    <div class="group">
+                        <label>Project Description</label>
+                        <textarea
+                        placeholder="Explain your project..."></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="section">
+
+                <h3>07. Work Experience</h3>
+
+                <div class="group">
+                    <label>Job Title</label>
+                    <input type="text"
+                    placeholder="Job role / Position">
+                </div>
+
+                <div class="group">
+                    <label>Company Name</label>
+                    <input type="text"
+                    placeholder="Company name">
+                </div>
+
+                <div class="group">
+                    <label>Duration</label>
+                    <input type="text"
+                    placeholder="June 2026 - August 2026">
+                </div>
+
+                <div class="group">
+                    <label>Responsibilities</label>
+                    <textarea
+                    placeholder="Describe your responsibilities and contributions..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- INTERNSHIP -->
+
+            <div class="section">
+
+                <h3>08. Internship Experience</h3>
+
+                <div class="group">
+                    <label>Internship / Organization</label>
+                    <input type="text"
+                    placeholder="Internship and organization name">
+                </div>
+
+                <div class="group">
+                    <label>Duration</label>
+                    <input type="text"
+                    placeholder="Enter internship duration">
+                </div>
+
+                <div class="group">
+                    <label>What You Learned</label>
+                    <textarea
+                    placeholder="Describe your experience and learning..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- CERTIFICATIONS -->
+
+            <div class="section">
+
+                <h3>09. Certifications</h3>
+
+                <div class="group">
+                    <label>Certificates and Courses</label>
+                    <textarea
+                    placeholder="Certificate name, issuing organization and year..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <div class="section">
+
+                <h3>10. Achievements</h3>
+
+                <div class="group">
+                    <label>Awards and Achievements</label>
+                    <textarea
+                    placeholder="Competitions, awards, academic achievements..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- LANGUAGES -->
+
+            <div class="section">
+
+                <h3>11. Languages</h3>
+
+                <div class="group">
+                    <label>Languages Known</label>
+                    <input type="text"
+                    placeholder="English, Malayalam, Hindi...">
+                </div>
+
+            </div>
+
+
+            <!-- ADDITIONAL INFORMATION -->
+
+            <div class="section">
+
+                <h3>12. Additional Information</h3>
+
+                <div class="group">
+                    <label>Interests and Hobbies</label>
+                    <textarea
+                    placeholder="Technology, Reading, Sports, Volunteering..."></textarea>
+                </div>
+
+                <div class="group">
+                    <label>Additional Information</label>
+                    <textarea
+                    placeholder="Any other relevant information..."></textarea>
+                </div>
+
+            </div>
+
+
+            <!-- DECLARATION -->
+
+            <div class="section">
+
+                <h3>13. Declaration</h3>
+
+                <div class="group">
+                    <label>Declaration</label>
+                    <textarea
+                    placeholder="I hereby declare that the information provided above is true and accurate to the best of my knowledge."></textarea>
+                </div>
+
+                <div class="two-column">
+
+                    <div class="group">
+                        <label>Date</label>
+                        <input type="text"
+                        placeholder="DD/MM/YYYY">
+                    </div>
+
+                    <div class="group">
+                        <label>Place</label>
+                        <input type="text"
+                        placeholder="Your location">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <!-- SAVE INSTRUCTIONS -->
+
+        <div class="instructions">
+
+            <strong>How to download your resume as PDF</strong>
+
+            <p>1. Complete all the sections above.</p>
+
+            <p>2. Press <strong>Ctrl + P</strong> on your laptop.</p>
+
+            <p>3. Select <strong>Save as PDF</strong>.</p>
+
+            <p>4. Choose A4 paper size.</p>
+
+            <p>5. Click Save to download your resume.</p>
+
+        </div>
+
+        <p class="print-note">
+            PROBE helps you prepare your professional career profile.
+            <br>
+            Your resume, your skills, your future.
+        </p>
+
+    </main>
+
+
+    <footer>
+        © 2026 Probe. From Student to Hire.
+    </footer>
+
+</body>
+</html>

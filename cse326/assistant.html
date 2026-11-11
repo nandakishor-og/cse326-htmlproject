@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant | Probe</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #17251e;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #e5eee8;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #159957;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34483b;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 65px auto;
+            padding: 0 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 9px 15px;
+            border-radius: 30px;
+            background: #e9f8ef;
+            color: #16834d;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        h1 span {
+            color: #159957;
+        }
+
+        .description {
+            color: #68776d;
+            line-height: 1.8;
+            font-size: 16px;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .assistant {
+            padding: 30px;
+            border: 1px solid #dceee2;
+            background: #f7fcf8;
+            border-radius: 20px;
+        }
+
+        .welcome {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: white;
+            border: 1px solid #e0eee4;
+            border-radius: 15px;
+            padding: 22px;
+            margin-bottom: 30px;
+        }
+
+        .bot-icon {
+            font-size: 35px;
+            background: #e0f6e8;
+            padding: 13px;
+            border-radius: 14px;
+        }
+
+        .welcome h2 {
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .topic {
+            background: white;
+            border: 1px solid #dceee2;
+            border-radius: 13px;
+            padding: 20px;
+            text-decoration: none;
+            color: #17251e;
+            transition: 0.3s;
+        }
+
+        .topic:hover {
+            background: #edfaf1;
+            border-color: #36b875;
+            transform: translateY(-3px);
+        }
+
+        .topic .icon {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .topic h4 {
+            margin-bottom: 9px;
+            font-size: 16px;
+        }
+
+        .topic p {
+            color: #68776d;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .resources {
+            margin-top: 30px;
+            padding: 24px;
+            background: white;
+            border: 1px solid #dceee2;
+            border-radius: 15px;
+        }
+
+        .resources p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .resource-link {
+            display: inline-block;
+            padding: 12px 18px;
+            background: #159957;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .resource-link:hover {
+            background: #117a45;
+        }
+
+        footer {
+            margin-top: 55px;
+            padding: 25px;
+            border-top: 1px solid #e5eee8;
+            text-align: center;
+            color: #78867d;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 20px 6%;
+            }
+
+            .container {
+                margin: 40px auto;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .assistant {
+                padding: 18px;
+            }
+
+            .topics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">probe.</div>
+        <a href="explore.html">← Back to Explore</a>
+    </nav>
+
+    <main class="container">
+
+        <p class="tag">YOUR CAREER WORKSPACE</p>
+
+        <h1>
+            Your career.<br>
+            <span>Your next step.</span>
+        </h1>
+
+        <p class="description">
+            Explore career paths, discover essential skills,
+            and find learning resources to help you move
+            from student to hire.
+        </p>
+
+        <section class="assistant">
+
+            <div class="welcome">
+                <div class="bot-icon">🤖</div>
+                <div>
+                    <h2>Welcome to Probe Assistant</h2>
+                    <p>
+                        Choose a topic below to find helpful
+                        career guidance and learning resources.
+                    </p>
+                </div>
+            </div>
+
+            <h3>What would you like help with?</h3>
+
+            <div class="topics">
+
+                <a href="https://roadmap.sh/" class="topic">
+                    <div class="icon">💻</div>
+                    <h4>Skill Development</h4>
+                    <p>
+                        Explore technology roadmaps and discover
+                        which skills to learn next.
+                    </p>
+                </a>
+
+                <a href="https://www.coursera.org/" class="topic">
+                    <div class="icon">📚</div>
+                    <h4>Learning Resources</h4>
+                    <p>
+                        Explore courses and educational resources
+                        to develop your knowledge.
+                    </p>
+                </a>
+
+                <a href="https://www.linkedin.com/jobs/" class="topic">
+                    <div class="icon">🚀</div>
+                    <h4>Career Opportunities</h4>
+                    <p>
+                        Discover jobs and internships to explore
+                        possible career paths.
+                    </p>
+                </a>
+
+                <a href="https://www.themuse.com/advice" class="topic">
+                    <div class="icon">🎯</div>
+                    <h4>Career Advice</h4>
+                    <p>
+                        Read advice on career planning, job searches
+                        and professional development.
+                    </p>
+                </a>
+
+            </div>
+
+            <div class="resources">
+                <h3>Ready to start learning?</h3>
+                <p>
+                    Explore free technology learning paths
+                    and choose a skill that matches your goals.
+                </p>
+
+                <a
+                    href="https://roadmap.sh/"
+                    class="resource-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Explore Learning Paths →
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Probe. From Student to Hire.
+    </footer>
+
+</body>
+</html>

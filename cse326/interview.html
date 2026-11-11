@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Preparation | Probe</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: #17251e;
+        }
+
+        /* Navigation */
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            border-bottom: 1px solid #e5eee8;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #159957;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34483b;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #159957;
+        }
+
+        /* Main container */
+
+        .container {
+            max-width: 1100px;
+            margin: 65px auto;
+            padding: 0 25px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e9f8ef;
+            color: #16834d;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 43px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        h1 span {
+            color: #159957;
+        }
+
+        .description {
+            max-width: 650px;
+            color: #66756b;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Hero section */
+
+        .hero {
+            background: #f0faf3;
+            border: 1px solid #dceee2;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 55px;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            margin-bottom: 13px;
+        }
+
+        .hero p {
+            color: #66756b;
+            line-height: 1.8;
+            max-width: 650px;
+            margin-bottom: 20px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: #159957;
+            color: white;
+            padding: 13px 23px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #107844;
+        }
+
+        /* Section headings */
+
+        .section-title {
+            font-size: 27px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #78867d;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        /* Preparation cards */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 23px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            display: block;
+            text-decoration: none;
+            color: #17251e;
+            background: #f7fcf8;
+            border: 1px solid #dceee2;
+            border-radius: 18px;
+            padding: 28px;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            background: #edfaf1;
+            border-color: #36b875;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(21, 153, 87, 0.10);
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: #e0f6e8;
+            border-radius: 14px;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .open {
+            color: #16834d;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Interview tips */
+
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 60px;
+        }
+
+        .tip {
+            padding: 23px;
+            border: 1px solid #e5eee8;
+            border-radius: 15px;
+            background: white;
+        }
+
+        .tip h3 {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .tip p {
+            font-size: 13px;
+            color: #68776d;
+            line-height: 1.8;
+        }
+
+        /* Common questions */
+
+        .questions {
+            margin-bottom: 60px;
+        }
+
+        details {
+            border: 1px solid #dceee2;
+            border-radius: 12px;
+            margin-bottom: 13px;
+            padding: 18px 20px;
+            background: #f7fcf8;
+        }
+
+        summary {
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            color: #263b2e;
+        }
+
+        details p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-top: 15px;
+        }
+
+        /* Final section */
+
+        .final-box {
+            text-align: center;
+            background: #f0faf3;
+            border: 1px solid #dceee2;
+            border-radius: 20px;
+            padding: 40px 25px;
+            margin-bottom: 60px;
+        }
+
+        .final-box h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .final-box p {
+            color: #68776d;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            color: #78867d;
+            font-size: 13px;
+            border-top: 1px solid #e5eee8;
+        }
+
+        /* Mobile responsive */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 20px 6%;
+            }
+
+            .container {
+                margin: 40px auto;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tips {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <div class="logo">probe.</div>
+        <a href="explore.html">← Back to Explore</a>
+    </nav>
+
+
+    <main class="container">
+
+        <!-- Heading -->
+
+        <p class="tag">CAREER DEVELOPMENT</p>
+
+        <h1>
+            Prepare. Practice.
+            <span>Get Hired.</span>
+        </h1>
+
+        <p class="description">
+            Build your confidence and get ready for your next
+            interview. Explore technical questions, HR questions,
+            coding preparation and professional interview tips.
+        </p>
+
+
+        <!-- Hero section -->
+
+        <section class="hero">
+
+            <h2>Your next opportunity starts here.</h2>
+
+            <p>
+                Interviews are your chance to show what you know.
+                Prepare yourself with important questions, improve
+                your communication and learn how to present your skills.
+            </p>
+
+            <a href="#preparation" class="hero-btn">
+                Start Preparing →
+            </a>
+
+        </section>
+
+
+        <!-- Preparation categories -->
+
+        <section id="preparation">
+
+            <h2 class="section-title">Interview Preparation</h2>
+
+            <p class="section-description">
+                Choose a category and start improving your interview skills.
+            </p>
+
+            <div class="cards">
+
+                <a href="#technical" class="card">
+
+                    <div class="icon">💻</div>
+
+                    <h3>Technical Interview</h3>
+
+                    <p>
+                        Prepare for technical interviews with
+                        computer science fundamentals, programming
+                        concepts and important technical questions.
+                    </p>
+
+                    <span class="open">Explore questions →</span>
+
+                </a>
+
+
+                <a href="#hr" class="card">
+
+                    <div class="icon">👔</div>
+
+                    <h3>HR Interview</h3>
+
+                    <p>
+                        Learn how to answer common HR questions,
+                        introduce yourself and communicate confidently
+                        with interviewers.
+                    </p>
+
+                    <span class="open">Explore questions →</span>
+
+                </a>
+
+
+                <a href="#coding" class="card">
+
+                    <div class="icon">⌨️</div>
+
+                    <h3>Coding Preparation</h3>
+
+                    <p>
+                        Strengthen your programming knowledge
+                        with Python basics, problem-solving,
+                        algorithms and coding concepts.
+                    </p>
+
+                    <span class="open">Explore questions →</span>
+
+                </a>
+
+
+                <a href="#tips" class="card">
+
+                    <div class="icon">🎯</div>
+
+                    <h3>Interview Tips</h3>
+
+                    <p>
+                        Discover useful interview strategies,
+                        body language tips, preparation techniques
+                        and professional etiquette.
+                    </p>
+
+                    <span class="open">Explore tips →</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technical questions -->
+
+        <section class="questions" id="technical">
+
+            <h2 class="section-title">Technical Interview Questions</h2>
+
+            <p class="section-description">
+                Some important beginner-level computer science questions.
+            </p>
+
+            <details>
+                <summary>1. What is a programming language?</summary>
+                <p>
+                    A programming language is a language used to
+                    communicate instructions to a computer.
+                    Examples include Python, Java and C++.
+                </p>
+            </details>
+
+            <details>
+                <summary>2. What is an algorithm?</summary>
+                <p>
+                    An algorithm is a step-by-step procedure
+                    used to solve a particular problem.
+                </p>
+            </details>
+
+            <details>
+                <summary>3. What is Object-Oriented Programming?</summary>
+                <p>
+                    Object-Oriented Programming (OOP) is a programming
+                    approach based on classes and objects.
+                    Its main concepts include inheritance,
+                    encapsulation, polymorphism and abstraction.
+                </p>
+            </details>
+
+            <details>
+                <summary>4. What is a database?</summary>
+                <p>
+                    A database is an organized collection of data
+                    that can be stored, accessed and managed.
+                </p>
+            </details>
+
+            <details>
+                <summary>5. What is the difference between HTML and CSS?</summary>
+                <p>
+                    HTML defines the structure of a webpage,
+                    while CSS controls its appearance and design.
+                </p>
+            </details>
+
+        </section>
+
+
+        <!-- HR questions -->
+
+        <section class="questions" id="hr">
+
+            <h2 class="section-title">HR Interview Questions</h2>
+
+            <p class="section-description">
+                Practice these frequently asked HR interview questions.
+            </p>
+
+            <details>
+                <summary>1. Tell me about yourself.</summary>
+                <p>
+                    Start with your name, education, technical skills,
+                    projects and career interests. Keep your introduction
+                    clear, confident and relevant to the job.
+                </p>
+            </details>
+
+            <details>
+                <summary>2. What are your strengths?</summary>
+                <p>
+                    Mention genuine strengths such as problem-solving,
+                    adaptability, teamwork or willingness to learn.
+                    Give a small example whenever possible.
+                </p>
+            </details>
+
+            <details>
+                <summary>3. What are your weaknesses?</summary>
+                <p>
+                    Mention an honest area you are improving.
+                    Explain what steps you are taking to overcome it.
+                </p>
+            </details>
+
+            <details>
+                <summary>4. Why should we hire you?</summary>
+                <p>
+                    Explain how your skills, willingness to learn,
+                    dedication and relevant experience can contribute
+                    to the organization.
+                </p>
+            </details>
+
+            <details>
+                <summary>5. Where do you see yourself in five years?</summary>
+                <p>
+                    Explain your career goals and your interest
+                    in developing professionally while contributing
+                    to the organization.
+                </p>
+            </details>
+
+        </section>
+
+
+        <!-- Coding questions -->
+
+        <section class="questions" id="coding">
+
+            <h2 class="section-title">Coding Preparation</h2>
+
+            <p class="section-description">
+                Understand these fundamental programming concepts.
+            </p>
+
+            <details>
+                <summary>1. What is a variable?</summary>
+                <p>
+                    A variable is a named storage location used
+                    to hold data in a program.
+                </p>
+            </details>
+
+            <details>
+                <summary>2. What is a loop?</summary>
+                <p>
+                    A loop is used to execute a block of code
+                    repeatedly while a condition is satisfied
+                    or for a specified number of times.
+                </p>
+            </details>
+
+            <details>
+                <summary>3. What is a function?</summary>
+                <p>
+                    A function is a reusable block of code
+                    designed to perform a particular task.
+                </p>
+            </details>
+
+            <details>
+                <summary>4. What is an array?</summary>
+                <p>
+                    An array is a data structure used to store
+                    multiple elements in an ordered collection.
+                </p>
+            </details>
+
+            <details>
+                <summary>5. What is recursion?</summary>
+                <p>
+                    Recursion is a programming technique in which
+                    a function calls itself to solve a problem.
+                </p>
+            </details>
+
+        </section>
+
+
+        <!-- Interview tips -->
+
+        <section id="tips">
+
+            <h2 class="section-title">Tips to Crack an Interview</h2>
+
+            <p class="section-description">
+                Small improvements can make a big difference.
+            </p>
+
+            <div class="tips">
+
+                <div class="tip">
+                    <h3>📚 Prepare Well</h3>
+                    <p>
+                        Research the company, understand the job
+                        requirements and revise important concepts.
+                    </p>
+                </div>
+
+                <div class="tip">
+                    <h3>🗣️ Communicate Clearly</h3>
+                    <p>
+                        Speak clearly, listen carefully and explain
+                        your answers with confidence.
+                    </p>
+                </div>
+
+                <div class="tip">
+                    <h3>⏰ Be Punctual</h3>
+                    <p>
+                        Join or arrive early, dress professionally
+                        and keep your documents ready.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Final section -->
+
+        <section class="final-box">
+
+            <h2>Every expert was once a beginner.</h2>
+
+            <p>
+                Keep learning, keep practising and never stop improving.
+                Your next interview could be the beginning of something great.
+            </p>
+
+            <a href="#preparation" class="hero-btn">
+                Practice Again →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        © 2026 Probe. From Student to Hire.
+    </footer>
+
+</body>
+
+</html>
